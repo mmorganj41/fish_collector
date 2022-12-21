@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for one_fish in fish %}
+<div class="card">
+  <div class="card-content">
+	<span class="card-title">{{ one_fish.name }}</span>
+	<p>Breed: {{ one_fish.species }}</p>
+	<p>Description: {{ one_fish.description }}</p>
+	{% if one_fish.age > 0 %}
+	  <p>Age: {{ cat.age }}</p>
+	{% else %}
+	  <p>Age: Guppy</p>
+	{% endif %}
+  </div>
+</div>
+{% endfor %}
+{% endblock content %}
+	
