@@ -1,7 +1,20 @@
 from django.shortcuts import render
 from .models import Fish
+from django.views.generic.edit import DeleteView, UpdateView, CreateView
 
 # Create your views here.
+
+class FishCreate(CreateView):
+	model = Fish
+	fields = '__all__'
+
+class FishUpdate(UpdateView):
+	model = Fish
+	fields = ['species', 'description', 'age']
+
+class FishDelete(DeleteView):
+	model = Fish
+	success_url = '/fish/'
 
 
 def home(request):
