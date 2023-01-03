@@ -48,23 +48,27 @@ def fish_index(request):
 	return render(request, 'fish/index.html', {'fish': fish})
 
 class ToyList(ListView):
-  model = Toy
+	model = Toy
 
 class ToyDetail(DetailView):
-  model = Toy
+	model = Toy
 
 class ToyCreate(CreateView):
-  model = Toy
-  fields = '__all__'
+	model = Toy
+	fields = '__all__'
 
 class ToyUpdate(UpdateView):
-  model = Toy
-  fields = ['name', 'color']
+	model = Toy
+	fields = ['name', 'color']
 
 class ToyDelete(DeleteView):
-  model = Toy
-  success_url = '/toys/'
+	model = Toy
+	success_url = '/toys/'
   
 def assoc_toy(request, fish_id, toy_id):
-  Fish.objects.get(id=fish_id).toys.add(toy_id)
-  return redirect('detail', fish_id=fish_id)
+	Fish.objects.get(id=fish_id).toys.add(toy_id)
+	return redirect('detail', fish_id=fish_id)
+
+def remove_toy(request, fish_id, toy_id):
+	Fish.objects.get(id=fish_id).toys.remove(toy_id)
+	return redirect('detail', fish_id=fish_id)
