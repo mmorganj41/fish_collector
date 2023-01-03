@@ -19,9 +19,11 @@
           <li><a href="/" class="left brand-logo">&nbsp;&nbsp;FishCollector</a></li>
         </ul>
         <ul class="right">
+          <li><a href="{% url 'toys_create' %}">Add a Toy</a></li>
+          <li><a href="{% url 'toys_index' %}">View All Toys</a></li>
           <li><a href="{% url 'fish_create' %}">Create a Fish</a></li>
-			    <li><a href="/fish">View All Fish</a></li>
-          <li><a href="/about">About</a></li>
+          <li><a href="{% url 'fish' %}">View All Fish</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
         </ul>
       </div>
     </nav>
@@ -31,7 +33,7 @@
     {% endblock %}
   </main>
   <footer class="page-footer cyan darken-1">
-    <div class="right">All Rights Reserved, &copy; 2019 Cat Collector &nbsp;</div>
+    <div class="right">All Rights Reserved, &copy; 2022 Fish Collector &nbsp;</div>
   </footer>
 </body>
 </html>
